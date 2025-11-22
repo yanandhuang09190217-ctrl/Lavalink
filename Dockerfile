@@ -1,13 +1,13 @@
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-# 下載 Lavalink JAR
-ADD https://github.com/freyacodes/Lavalink/releases/download/3.10.11/Lavalink.jar /app/Lavalink.jar
+# 把 Lavalink.jar 放進容器
+COPY Lavalink.jar .
 
-# 複製設定檔
-COPY application.yml /app/application.yml
+# 把 application.yml 放進容器
+COPY application.yml .
 
 EXPOSE 2333
 
-CMD ["java", "-jar", "Lavalink.jar", "--spring.config.location=application.yml"]
+CMD ["java", "-Xmx512M", "-Xms256M", "-jar", "Lavalink.jar"]
