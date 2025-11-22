@@ -2,12 +2,13 @@ FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-# 把 Lavalink.jar 放進容器
-COPY Lavalink.jar .
+# 下載最新版 Lavalink.jar
+RUN apt-get update && apt-get install -y curl
+RUN curl -L "https://github.com/lavalink-devs/Lavalink/releases/latest/download/Lavalink.jar" -o Lavalink.jar
 
-# 把 application.yml 放進容器
+# 複製設定檔
 COPY application.yml .
 
 EXPOSE 2333
 
-CMD ["java", "-Xmx512M", "-Xms256M", "-jar", "Lavalink.jar"]
+CMD ["java", "-jar", "Lavalink.jar"]
