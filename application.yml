@@ -1,10 +1,10 @@
-server:
-  port: 2333
-  address: 0.0.0.0
-
 lavalink:
   server:
-    password: "youshallnotpass"
+    port: ${PORT}
+    address: 0.0.0.0
+
+    filters: {}   # <= 必須是 map，不能用 true/false
+
     sources:
       youtube: true
       bandcamp: true
@@ -13,11 +13,3 @@ lavalink:
       vimeo: true
       http: true
       local: false
-    filters: true
-
-logging:
-  file:
-    path: ./logs/
-  level:
-    root: INFO
-    lavalink: INFO
