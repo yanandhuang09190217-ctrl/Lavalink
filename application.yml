@@ -1,0 +1,21 @@
+server:
+  port: 2333
+
+lavalink:
+  server:
+    password: "youshallnotpass"
+    sources:
+      youtube: true
+      http: true
+      https: true
+      soundcloud: true
+      twitch: true
+      vimeo: true
+      bandcamp: true
+      local: false
+
+logging:
+  file:
+    max-history: 3
+    name: lavalink.log
+    max-size: 10MB
