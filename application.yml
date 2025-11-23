@@ -1,2 +1,15 @@
 server:
-  port: ${PORT}
+  port: ${PORT:2333}
+
+lavalink:
+  server:
+    password: "你的密碼"
+    sources:
+      youtube: true
+      soundcloud: true
+      http: true
+      local: false
+    bufferDurationMs: 400
+    frameBufferDurationMs: 1000
+    opusEncodingQuality: 10
+    resamplingQuality: HIGH
