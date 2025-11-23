@@ -1,11 +1,10 @@
-FROM eclipse-temurin:17-jdk
+FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
-# 下載 Lavalink 5 最新版 jar
-ADD https://github.com/lavalink-devs/Lavalink/releases/latest/download/Lavalink.jar /app/Lavalink.jar
-
-COPY application.yml /app/application.yml
+# 使用 v3（最穩定版本）
+ADD https://github.com/lavalink-devs/Lavalink/releases/download/3.7.10/Lavalink.jar Lavalink.jar
+COPY application.yml .
 
 EXPOSE 2333
 
