@@ -1,11 +1,14 @@
-FROM openjdk:17-jdk-slim
+# 使用 Temurin 取代 openjdk
+FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-# 使用 v3（最穩定版本）
-ADD https://github.com/lavalink-devs/Lavalink/releases/download/3.7.10/Lavalink.jar Lavalink.jar
+# 將 Lavalink.jar 與 application.yml 放進容器
+COPY Lavalink.jar .
 COPY application.yml .
 
+# 開放 Lavalink 預設埠
 EXPOSE 2333
 
+# 啟動 Lavalink
 CMD ["java", "-jar", "Lavalink.jar"]
