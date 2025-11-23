@@ -12,3 +12,4 @@ EXPOSE 2333
 
 # 啟動 Lavalink
 CMD ["java", "-jar", "Lavalink.jar"]
+
